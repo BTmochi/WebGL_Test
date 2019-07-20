@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | WebGL_Test</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+        // WebGLファイルのインスタンス作成（ダウンロード）処理
+        function loadWebgl() {
+            // var なしでグローバル変数"gameInstance"にインスタンス格納
+            // var ありだとフルスクリーン表示ができない
+            unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL_Test.json", {
+                onProgress: UnityProgress
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="webgl-content">
+        <div id="unityContainer" style="width: 960px; height: 600px"></div>
+        <!-- クリックで関数 loadWebgl() の実行。-->
+        <input type=image onclick="loadWebgl();" src="TemplateData/clicktoplay.png">
+        <div class="footer">
+            <div class="webgl-logo"></div>
+            <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+            <div class="title">WebGL_Test</div>
+        </div>
+    </div>
+</body>
+</html>
